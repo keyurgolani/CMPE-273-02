@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 
+
+Topic: Geolocation
+Problem: Designing a small application to give the location opposite to user's current location on the world globe.
+
+ -->
+
+<html>
+<head>
+<title>HTML Geolocation Problem</title>
+<meta name="description"
+	content="HTML Geolocation Problem: Designing a small application to give the location opposite to user's current location on the world globe.">
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCarephsRoFwlkdRO5OvpXkyZL3VM3QtL4"
+	async defer></script>
+<!-- Google API Key: AIzaSyCarephsRoFwlkdRO5OvpXkyZL3VM3QtL4 -->
+<script type="text/javascript">
+	function display() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var pos = {
+					lat : position.coords.latitude,
+					lng : position.coords.longitude
+				};
+
+				alert("Here");
+			});
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="#">
+		<input type="button" value="Submit" onclick="display()" />
+		<p id="result"></p>
+	</form>
+</body>
+</html>
