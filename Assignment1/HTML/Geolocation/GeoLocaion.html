@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<!-- 
-
-Topic: Geolocation
-Problem: Designing a small application to give the location opposite to user's current location on the world globe.
-
- -->
-
 <html>
-<head>
-<title>HTML Geolocation Problem</title>
-<meta name="description"
-	content="HTML Geolocation Problem: Designing a small application to give the location opposite to user's current location on the world globe.">
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCarephsRoFwlkdRO5OvpXkyZL3VM3QtL4"
-	async defer></script>
-<!-- Google API Key: AIzaSyCarephsRoFwlkdRO5OvpXkyZL3VM3QtL4 -->
-<script type="text/javascript">
-	function display() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				var pos = {
-					lat : position.coords.latitude,
-					lng : position.coords.longitude
-				};
-
-				alert("Here");
-			});
-		}
-	}
-</script>
-</head>
-<body>
-	<form action="#">
-		<input type="button" value="Submit" onclick="display()" />
-		<p id="result"></p>
-	</form>
-</body>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+		<div><h1>Position Opposite to Your Current Position on the Globe.</h1></div>
+    <div id="map"></div>
+    <script>
+      var map;
+      function display() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						map = new google.maps.Map(document.getElementById('map'), {
+		          center: {lat: -position.coords.latitude, lng: -position.coords.longitude},
+		          zoom: 4
+		        });
+						var marker = new google.maps.Marker({
+							position: {lat: -position.coords.latitude, lng: -position.coords.longitude},
+							map: map,
+							title: 'Position Opposite to you..!!'
+						});
+					});
+				}
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC964SC7LmJk9AV_779s6xAkNtAATYHASY&callback=display"
+    async defer></script>
+  </body>
 </html>
