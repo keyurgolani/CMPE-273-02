@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<!--
+ 
+	Topic: HTML5 InputType
+	Problem: Registration form for new user at an online store.
+	Node: The form is validated at the press of submit button(Submission of the form). Expects the following for each field.
+	Full Name: Proper Full Name pattern, mandatory.
+	Blood Group: Valid blood group string. Example "O+, B-, etc"
+	Address 1: Expects a valid street address format. Example "201 S. 4th St"
+	Apt: Expects apartment number to be digits or alphabets. Example: "544, 408A, 203C, 1AC, etc"
+	City: Expects a valid city format. Example "San Jose"
+	State: Expects two characters state abbreviation. Only accepts US state names. Example "CA, NY, NJ, etc"
+	Zip Code: Expects a valid USA zip code. Example "95112"
+	Phone Number: Expects a valid phone number with the + sign and country code in front and separated by dot(.), space( ) or hyphen(-). Example "+1 669 237 5784"
+	Email: Expects a valid email address with @ after user name and before email domain name.
+	Date of Birth: Expects a valid date from the drop down calendar provided. Expects the strict format provided to be followed.
+ -->
+
+<html>
+<head>
+<title>InputType Problem</title>
+<meta name="description"
+	content="Registration form for new user at an online store.">
+<meta charset="utf-8">
+</head>
+<body>
+	<form action="#" id="inputForm">
+		<div align="center">
+			<h1 style="text-decoration: underline; text-shadow: black;">Hospital Registration Form</h1>
+		</div>
+		<div style="height: 50px">&nbsp;</div>
+		<div align="center">
+			<table>
+				<tr>
+					<td>Full Name:</td>
+					<td><input type="text" autofocus="autofocus" name="name"
+						placeholder="Full Name" tabindex="1" required="required"
+						pattern="^[a-zA-Z\s]+$" size="50"></td>
+				</tr>
+				<tr>
+					<td>Blood Group:</td>
+					<td><input type="text" name="bloodgroup"
+						placeholder="Blood Group" tabindex="2" pattern="^(A|B|AB|O)[+-]$"
+						size="5"></td>
+				</tr>
+				<tr>
+					<td>Address 1:</td>
+					<td><input type="text" name="address1" placeholder="Address 1"
+						required="required" tabindex="3"
+						pattern="^\d+\s[A-z0-9.\s]+\s[A-z0-9.\s]+$" size="50"></td>
+				</tr>
+				<tr>
+					<td>Apt:</td>
+					<td><input type="text" name="apt" placeholder="Apartment No"
+						tabindex="4" pattern="^[0-9A-Za-z]*$" size="50"></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city" placeholder="City"
+						tabindex="5" required="required"
+						pattern="^(?:[A-Z][a-z.-]+[ ]?)+$" size="20"></td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td><input type="text" name="state" placeholder="State"
+						tabindex="6" required="required"
+						pattern="^AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MP|OH|OK|OR|PW|PA|PR|RI|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY$"
+						size="5"></td>
+				</tr>
+				<tr>
+					<td>Zip Code:</td>
+					<td><input type="text" name="zipcode" placeholder="Zip Code"
+						tabindex="7" required="required" pattern="^\b\d{5}(?:-\d{4})?\b$"
+						size="20"></td>
+				</tr>
+				<tr>
+					<td>Phone Number:</td>
+					<td><input type="text" name="phone" placeholder="Phone Number"
+						tabindex="8" required="required"
+						pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+						size="20"></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="email" name="email" placeholder="Email ID"
+						tabindex="9" required="required" size="50"></td>
+				</tr>
+				<tr>
+					<td>Date of Birth:</td>
+					<td><input type="date" name="dob" placeholder="Date of Birth"
+						tabindex="10" required="required" size="20"></td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr align="center">
+					<td colspan="2"><input type="submit" name="submit"
+						tabindex="11" value="Submit"></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>
