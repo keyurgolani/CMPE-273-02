@@ -7,45 +7,45 @@
 	Note: Only works with Windows. Also only works with Chrome if the file is opened from a simple HTTP server hosting.
 	
  -->
- 
+
 <html>
 <head>
 <title>GeoLocation Problem</title>
-<meta name="description" content="A web app that shows the position exact opposite to user's current location on the globe.">
+<meta name="description"
+	content="A web app that shows the position exact opposite to user's current location on the globe.">
 <meta charset="utf-8">
 <style>
-
 #map {
 	height: 80%;
 }
 </style>
 <script>
-		var map;
-		function display() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					map = new google.maps.Map(document.getElementById('result'), {
-						center : {
-							lat : -position.coords.latitude,
-							lng : -position.coords.longitude
-						},
-						zoom : 4
-					});
-					var marker = new google.maps.Marker({
-						position : {
-							lat : -position.coords.latitude,
-							lng : -position.coords.longitude
-						},
-						map : map,
-						title : 'Position Opposite to you..!!'
-					});
+	var map;
+	function display() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				map = new google.maps.Map(document.getElementById('result'), {
+					center : {
+						lat : -position.coords.latitude,
+						lng : -position.coords.longitude
+					},
+					zoom : 4
 				});
-			}
+				var marker = new google.maps.Marker({
+					position : {
+						lat : -position.coords.latitude,
+						lng : -position.coords.longitude
+					},
+					map : map,
+					title : 'Position Opposite to you..!!'
+				});
+			});
 		}
-	</script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC964SC7LmJk9AV_779s6xAkNtAATYHASY&callback=display"
-		async defer></script>
+	}
+</script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC964SC7LmJk9AV_779s6xAkNtAATYHASY&callback=display"
+	async defer></script>
 </head>
 <body>
 	<div>

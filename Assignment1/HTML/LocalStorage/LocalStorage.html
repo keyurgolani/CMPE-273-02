@@ -58,18 +58,19 @@ function goBack() {
 </script>
 </head>
 <body>
-<div id="inputName" align="center" style="visibility: visible;">
-	<form action="#">
-		<input type="text" autofocus="autofocus" name="name" id="name"
-						placeholder="First Name" tabindex="1" required="required" size="25">
-		<input type="button" value="Proceed" onclick="go()">
-	</form>
-</div>
-<div id="addressUser" style="visibility: hidden;" align="center">
-	<h1 id="greeting"></h1>
-	<h2 id="visitCounts"></h2>
-	<input type="button" value="Let's Start Over" onclick="resetData()">
-	<input type="button" value="Go Back" autofocus="autofocus" onclick="goBack()">
-</div>
+	<div id="inputName" align="center" style="visibility: visible;">
+		<form action="#">
+			<input type="text" autofocus="autofocus" name="name" id="name"
+				placeholder="First Name" tabindex="1" required="required" size="25">
+			<input type="button" value="Proceed" onclick="go()">
+		</form>
+	</div>
+	<div id="addressUser" style="visibility: hidden;" align="center">
+		<h1 id="greeting"></h1>
+		<h2 id="visitCounts"></h2>
+		<input type="button" value="Let's Start Over" onclick="resetData()">
+		<input type="button" value="Go Back" autofocus="autofocus"
+			onclick="goBack()">
+	</div>
 </body>
 </html>
