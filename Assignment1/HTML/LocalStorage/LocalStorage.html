@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--
+ 
+	Topic: HTML5 LocalStorage
+	Problem: A page which accepts the name of a user and then later on greets him with the same name every time.
+	Note: Takes user's name and shows the user customized greeting. Also shows how many times the particular page has been visited so far.
+		Also resets the count as well as user's name values from local storage and gives the user opportunity to start over. 
+ -->
+
+<html>
+<head>
+<title>LocalStorage Problem</title>
+<meta name="description"
+	content="A page which accepts the name of a user and then later on greets him with the same name every time.">
+<meta charset="utf-8">
+<script type="text/javascript">
+function go() {
+	if(typeof(Storage) != "undefined") {
+		localStorage.setItem("UserName", document.getElementById("name").value);
+		if(localStorage.clickcount) {
+			localStorage.clickcount = Number(localStorage.clickcount) + 1;
+		} else {
+			localStorage.clickcount = 1;
+		}
+	} else {
+		alert("Your browser doesn't support HTML5 feature named \"Local Storage\"")
+	}
+	
+	document.getElementById("inputName").style.visibility = "hidden";
+	
+	document.getElementById("greeting").innerHTML = "Hello, " + localStorage.getItem("UserName");
+	document.getElementById("visitCounts").innerHTML = "You've visited this page " + Number(localStorage.clickcount) + " times so far..!";
+	
+	document.getElementById("addressUser").style.visibility = "visible";
+	
+}
+
+function resetData() {
+	if(typeof(Storage) != "undefined") {
+		if(localStorage.getItem("UserName") != null) {
+			localStorage.removeItem("UserName");
+		}
+		if(localStorage.clickcount) {
+			localStorage.clickcount = 0;
+		}
+		
+		goBack();
+	}
+}
+
+function goBack() {
+	document.getElementById("inputName").style.visibility = "visible";
+	document.getElementById("addressUser").style.visibility = "hidden";
+	document.getElementById("name").value = "";
+}
+
+</script>
+</head>
+<body>
+<div id="inputName" align="center" style="visibility: visible;">
+	<form action="#">
+		<input type="text" autofocus="autofocus" name="name" id="name"
+						placeholder="First Name" tabindex="1" required="required" size="25">
+		<input type="button" value="Proceed" onclick="go()">
+	</form>
+</div>
+<div id="addressUser" style="visibility: hidden;" align="center">
+	<h1 id="greeting"></h1>
+	<h2 id="visitCounts"></h2>
+	<input type="button" value="Let's Start Over" onclick="resetData()">
+	<input type="button" value="Go Back" autofocus="autofocus" onclick="goBack()">
+</div>
+</body>
+</html>
