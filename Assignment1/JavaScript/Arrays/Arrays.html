@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Arrays
+	Problem: Showing an image on webpage according to user's selection. 
+	Note: The user will select a radio button from the set of radio buttons presented to him.
+		The pressed radio button will call a javascript function which will fetch the desired
+		image from the array and display it on the webpage.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Arrays</title>
+<meta name="description"
+	content="Showing an image on webpage according to user's selection.">
+<meta charset="utf-8">
+<script type="text/javascript">
+	var imageLinks = ["http://cdn.pinthiscars.com/images/porsche-carrera-gt-turbo-wallpaper-6.jpg",
+	                  "http://1.bp.blogspot.com/-1PAbzzIL6Ys/T46THUbpxXI/AAAAAAAA1lE/_dNtCynXkyE/s1600/Porsche+996+911+GT1+Cars+Wallpapers+(12).jpg",
+	                  "http://moshlab.com/wp-content/uploads/2015/04/Lamborghini-Veneno-Roadster-Wallpaper-Sport-Car-Full-HD-Desktop-29999228819.jpg",
+	                  "http://wallpapercave.com/wp/IfkafN6.jpg",
+	                  "http://downloadwallpaperhd.com/wp-content/uploads/2013/04/Lamborghini-Murcielago-HD-Wallpaper.jpg",
+	                  "http://www.9carthai.com/wp-content/uploads/2013/04/Lamborghini-Ganador-Concept-4.jpg",
+	                  "http://1nova.com/wallpapers/wp-content/uploads/sites/34/2014/11/291-Lamborghini-Pregunta-concept.jpg	",
+	                  "http://www.vehiclehi.com/download/view?resolution=2560x1600&file=MTQ0MHg5MDAvMjAxMjExMDEvY2FycyBsYW1ib3JnaGluaSBzdXBlcmNhcnMgY29uY2VwdCBjYXJzIDE0NDB4OTAwIHdhbGxwYXBlcl93d3cudmVoaWNsZWhpLmNvbV8xNi5qcGc=&name=Y2Fyc19sYW1ib3JnaGluaV9zdXBlcmNhcnNfY29uY2VwdF9jYXJzXzE0NDB4OTAwX3dhbGxwYXBlcg==",
+	                  "http://www.youwall.com/papel/lamborghini_ankonian_wallpaper_48afc.jpg"]
+	function changeImage(item) {
+		document.getElementById("imageFrame").src = imageLinks[item];
+	}
+</script>
+</head>
+<body>
+<fieldset>
+	<legend><h1>Javascript Arrays</h1></legend>
+	<fieldset>
+                <legend>What car do you want to see?</legend>
+                        <input type="radio" name="car" value="0" onclick="changeImage(this.value)"/>Porsche GT 112<br/>
+                        <input type="radio" name="car" value="1" onclick="changeImage(this.value)"/>Porsche 911 GT1<br/>
+                        <input type="radio" name="car" value="2" onclick="changeImage(this.value)"/>Lamborghini Perdigon<br/>
+                        <input type="radio" name="car" value="3" onclick="changeImage(this.value)"/>Lamborghini Dynavonto<br/>
+                        <input type="radio" name="car" value="4" onclick="changeImage(this.value)"/>Lamborghini Murcielago<br/>
+                        <input type="radio" name="car" value="5" onclick="changeImage(this.value)"/>Lamborghini Ganador<br/>
+                        <input type="radio" name="car" value="6" onclick="changeImage(this.value)"/>Lamborghini Pregunta<br/>
+                        <input type="radio" name="car" value="7" onclick="changeImage(this.value)"/>Lamborghini Ferruccio<br/>
+                        <input type="radio" name="car" value="8" onclick="changeImage(this.value)"/>Lamborghini Ankonian<br/>
+        </fieldset>
+        <br>
+        <div align="center" style="font-size: 50px;">
+        	<img id="imageFrame" src="" alt="Car Image to Appear Here" height="600" width="1100">
+        </div>
+</fieldset>
+</body>
+</html>
