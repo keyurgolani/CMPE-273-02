@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Arrays
+	Problem: Showing an image on webpage according to user's selection. 
+	Note: The user will select a radio button from the set of radio buttons presented to him.
+		The pressed radio button will call a javascript function which will fetch the desired
+		image from the array and display it on the webpage.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Conditions</title>
+<meta name="description"
+	content="Showing an image on webpage according to user's selection.">
+<meta charset="utf-8">
+</head>
+<body id="body">
+	<fieldset>
+		<legend style="font-size: 50px; font-weight: bold;">JavaScript Arrays</legend>
+		<div style="font-family: monospace; font: bold; font-size: 200px;">
+			<p id="greeting"></p>
+		</div>
+	</fieldset>
+	<script type="text/javascript">
+		var greeting = "";
+		var imageLink = "";
+		var d = new Date();
+		var hours = d.getHours();
+		if(hours >= 6 && hours < 12) {
+			greeting = "Good Morning";
+			imageLink = "http://livehdwallpaper.com/wp-content/uploads/2016/01/Nature-Good-Morning-Wallpapers-HD-Pictures.jpg";
+		} else if(hours >= 12 && hours < 17) {
+			greeting = "Good Afternoon";
+			imageLink = "http://imgs.mi9.com/uploads/landscape/4154/blissful-late-afternoon_1920x1200_71934.jpg";
+		} else if(hours >= 17 && hours < 22) {
+			document.getElementById("body").style.color = "white";
+			greeting = "Good Evening";
+			imageLink = "http://eskipaper.com/images/evening-wallpaper-3.jpg";
+		} else if((hours >= 22 && hours < 24) || (hours >= 0 && hours < 6)) {
+			document.getElementById("body").style.color = "white";
+			greeting = "Good Night";
+			imageLink = "http://www.cfau-pd.net/images/night-wallpaper/night-wallpaper-3.jpg";
+		}
+		document.getElementById("greeting").innerHTML = greeting;
+		document.getElementById("body").style.backgroundImage = "url('" + imageLink + "')";
+		document.getElementById("body").style.backgroundRepeat = "no-repeat";
+		document.getElementById("body").style.backgroundSize = "100% 100%";
+	</script>
+</body>
+</html>
