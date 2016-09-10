@@ -1,0 +1,17 @@
+fieldset {
+	border: 4px solid black;
+}
+
+body {
+	background-image: url('http://i.imgur.com/4j5xzWP.jpg');
+}
+
+legend {
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.errorField {
+	font-size: 20px;
+	color: #FF0000;
+}

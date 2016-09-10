@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Errors
+	Problem: For a sign up page, First Name, Last Name should not have numbers. 
+	Note: This will validate the first name and last name entered by user and
+		validate the value of those. If the values are not valid, it will throw
+		an error which will be caught into the catch block where it will be
+		notified to the user.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Errors</title>
+<meta name="description"
+	content="For a signup page, First Name, Last Name should not have numbers.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+<script type="text/javascript">
+	function validateInput() {
+		var nameRE = "^[a-zA-Z.' ]+$";
+		var fname = document.getElementById('fname').value;
+		var lname = document.getElementById('lname').value;
+		try{
+			document.getElementById('errorField').innerText = "";
+			if(fname.match(nameRE) == null && fname.trim() != "") throw "Invalid First Name"
+			if(lname.match(nameRE) == null && lname.trim() != "") throw "Invalid Last Name"
+		} catch(err) {
+			document.getElementById('errorField').innerText = "Error: " + err;
+		}
+	}
+</script>
+</head>
+<body id="body">
+<fieldset>
+	<legend>Javascript Errors</legend>
+	<p id="errorField" class="errorField"></p>
+	<span style="font-size: 30px;">Enter Your Name:&emsp;&emsp;&emsp;</span>
+	<input type="text" placeholder="First Name" id="fname" autofocus="autofocus" style="height: 40px; width: 20%; font-size: 30px;" onkeyup="validateInput()">
+	<input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 20%; font-size: 30px;" onkeyup="validateInput()">
+</fieldset>
+</body>
+</html>

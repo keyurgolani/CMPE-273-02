@@ -2,11 +2,12 @@
 
 <!--
 
-	Topic: Javascript Arrays
-	Problem: Showing an image on webpage according to user's selection. 
-	Note: The user will select a radio button from the set of radio buttons presented to him.
-		The pressed radio button will call a javascript function which will fetch the desired
-		image from the array and display it on the webpage.
+	Topic: Javascript Conditions
+	Problem: Showing background and  greeting message according to the time of the day.
+	Note: the user will open the page and will see a background image according to the time of the day.
+		He will also see a greeting according to morning/afternoon/evening/night time durations.
+		This could be utilized into any weather applications or web sites. In fact can also be utilized
+		as a fancy home page of any website.
 
  -->
 
@@ -14,12 +15,13 @@
 <head>
 <title>Javascript Conditions</title>
 <meta name="description"
-	content="Showing an image on webpage according to user's selection.">
+	content="Showing background and  greeting message according to the time of the day.">
 <meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
 </head>
 <body id="body">
-	<fieldset>
-		<legend style="font-size: 50px; font-weight: bold;">JavaScript Arrays</legend>
+	<fieldset id="titleFieldSet">
+		<legend style="font-size: 50px; font-weight: bold;">JavaScript Conditions</legend>
 		<div style="font-family: monospace; font: bold; font-size: 200px;">
 			<p id="greeting"></p>
 		</div>
@@ -37,10 +39,12 @@
 			imageLink = "http://imgs.mi9.com/uploads/landscape/4154/blissful-late-afternoon_1920x1200_71934.jpg";
 		} else if(hours >= 17 && hours < 22) {
 			document.getElementById("body").style.color = "white";
+			document.getElementById('titleFieldSet').style.borderColor = "white";
 			greeting = "Good Evening";
 			imageLink = "http://eskipaper.com/images/evening-wallpaper-3.jpg";
 		} else if((hours >= 22 && hours < 24) || (hours >= 0 && hours < 6)) {
 			document.getElementById("body").style.color = "white";
+			document.getElementById('titleFieldSet').style.borderColor = "white";
 			greeting = "Good Night";
 			imageLink = "http://www.cfau-pd.net/images/night-wallpaper/night-wallpaper-3.jpg";
 		}
