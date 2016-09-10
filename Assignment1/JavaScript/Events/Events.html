@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Events
+	Problem: Presentation purposes when the mouse comes over a text, it should jump out. 
+	Note: This can be used on websites for the animation or highlighting of specific important text or parts.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Events</title>
+<meta name="description"
+	content="Presentation purposes when the mouse comes over a text, it should jump out.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+<style type="text/css">
+body {
+	background: #474747 url(http://line25.com/wp-content/uploads/2009/letterpress/demo/bg.png);
+}
+
+h1 {
+	font: 70px Tahoma, Helvetica, Arial, Sans-Serif;
+	text-align: center;
+	color: #222;
+	text-shadow: 0px 2px 3px #555;
+}
+</style>
+<script type="text/javascript">
+	function highlight() {
+		document.getElementById('titleText').style.fontSize = "75px";
+		document.getElementById('titleText').style.color = "#111";
+		document.getElementById('titleText').style.textDecoration = "underline";
+		document.getElementById('titleText').style.textShadow = "2px 4px 6px #666";
+	}
+	
+	function dehighlight() {
+		document.getElementById('titleText').style.fontSize = "70px";
+		document.getElementById('titleText').style.color = "#222";
+		document.getElementById('titleText').style.textDecoration = "";
+		document.getElementById('titleText').style.textShadow = "0px 2px 3px #555";
+	}
+</script>
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript Events</legend>
+		<h1 onmouseover="highlight()" onmouseout="dehighlight()" id="titleText">Hover Your Mouse Here</h1>
+	</fieldset>
+</body>
+</html>

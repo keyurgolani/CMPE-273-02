@@ -23,23 +23,30 @@
 		var nameRE = "^[a-zA-Z.' ]+$";
 		var fname = document.getElementById('fname').value;
 		var lname = document.getElementById('lname').value;
-		try{
+		try {
 			document.getElementById('errorField').innerText = "";
-			if(fname.match(nameRE) == null && fname.trim() != "") throw "Invalid First Name"
-			if(lname.match(nameRE) == null && lname.trim() != "") throw "Invalid Last Name"
-		} catch(err) {
+			if (fname.match(nameRE) == null && fname.trim() != "")
+				throw "Invalid First Name"
+			if (lname.match(nameRE) == null && lname.trim() != "")
+				throw "Invalid Last Name"
+		} catch (err) {
 			document.getElementById('errorField').innerText = "Error: " + err;
 		}
 	}
 </script>
 </head>
 <body id="body">
-<fieldset>
-	<legend>Javascript Errors</legend>
-	<p id="errorField" class="errorField"></p>
-	<span style="font-size: 30px;">Enter Your Name:&emsp;&emsp;&emsp;</span>
-	<input type="text" placeholder="First Name" id="fname" autofocus="autofocus" style="height: 40px; width: 20%; font-size: 30px;" onkeyup="validateInput()">
-	<input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 20%; font-size: 30px;" onkeyup="validateInput()">
-</fieldset>
+	<fieldset>
+		<legend>Javascript Errors</legend>
+		<p id="errorField" class="errorField"></p>
+		<span style="font-size: 30px;">Enter Your
+			Name:&emsp;&emsp;&emsp;</span> <input type="text" placeholder="First Name"
+			id="fname" autofocus="autofocus"
+			style="height: 40px; width: 20%; font-size: 30px;"
+			onkeyup="validateInput()"> <input type="text"
+			placeholder="Last Name" id="lname"
+			style="height: 40px; width: 20%; font-size: 30px;"
+			onkeyup="validateInput()">
+	</fieldset>
 </body>
 </html>
