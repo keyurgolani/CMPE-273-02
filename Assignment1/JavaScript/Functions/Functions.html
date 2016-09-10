@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Functions
+	Problem: A simple calculator which adds, subtracts, multiplies and divides the two values entered and gives output. 
+	Note: Simple calculator will use add, sub, mul and div functions to compute the outputs of desired operations.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Functions</title>
+<meta name="description"
+	content="A simple calculator which adds, subtracts, multiplies and divides the two values entered and gives output.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+</head>
+<script type="text/javascript">
+	
+	function restrictAlphabet(evt) {
+    	var charCode = (evt.which) ? evt.which : evt.keyCode;
+    	if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+      		return false;
+      	} else {
+      		return true;
+      	}
+    }
+	
+	function addValue() {
+		var v1 = document.getElementById('value1').value;
+		var v2 = document.getElementById('value2').value;
+		var result = Number(v1) + Number(v2);
+		document.getElementById('result').innerText = "Addition of " + v1 + " and " + v2 + " is " + result + ".";
+	}
+
+	function subtractValue() {
+		var v1 = document.getElementById('value1').value;
+		var v2 = document.getElementById('value2').value;
+		var result = Number(v1) - Number(v2);
+		document.getElementById('result').innerText = "Subtraction of " + v1 + " and " + v2 + " is " + result + ".";
+	}
+
+	function multiplyValue() {
+		var v1 = document.getElementById('value1').value;
+		var v2 = document.getElementById('value2').value;
+		var result = Number(v1) * Number(v2);
+		document.getElementById('result').innerText = "Multiplication of " + v1 + " and " + v2 + " is " + result + ".";
+	}
+
+	function divideValue() {
+		var v1 = document.getElementById('value1').value;
+		var v2 = document.getElementById('value2').value;
+		var result = Number(v1) / Number(v2);
+		document.getElementById('result').innerText = "Division of " + v1 + " and " + v2 + " is " + result + ".";
+	}
+</script>
+<body id="body">
+	<fieldset style="width: 100%; margin: 0px auto;">
+		<legend>Javascript Functions</legend>
+		<div align="center">
+			<input type="text" id="value1" onkeypress="return restrictAlphabet(event);" autofocus="autofocus">
+			<input type="text" id="value2" onkeypress="return restrictAlphabet(event);">
+			<div>
+				<input type="button" class="btn btn-lg btn-primary mybutton" onclick="addValue();" value="+">
+				<input type="button" class="btn btn-lg btn-primary mybutton" onclick="subtractValue();" value="-">
+				<input type="button" class="btn btn-lg btn-primary mybutton" onclick="multiplyValue();" value="&times;">
+				<input type="button" class="btn btn-lg btn-primary mybutton" onclick="divideValue();" value="&divide;">
+			</div>
+			<div>
+				<p id="result" style="text-transform: capitalize; font-size:xx-large; font-weight: bold;"></p>
+			</div>
+		</div>
+	</fieldset>
+</body>
+</html>
