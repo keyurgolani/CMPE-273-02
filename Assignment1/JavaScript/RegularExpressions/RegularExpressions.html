@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Regular Expressions
+	Problem: Finding contact details of a person out of a large text.
+	Note: This extracts phone number and email for contact from a big text and gives
+		you direct access to them.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Regular Expressions</title>
+<meta name="description"
+	content="Finding contact details of a person out of a large text.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+<script type="text/javascript">
+	function refactor() {
+		var phoneRE = new RegExp("\\+?\\(?\\d*\\)? ?\\(?\\d+\\)?\\d*([\\s./-]?\\d{2,})+", "g");
+		var phone = document.getElementById('input').value.match(phoneRE);
+		var email = document.getElementById('input').value.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+		if(email && phone) {
+			document.getElementById('output').value = "Emails: " + "\n" + email + "\n" + "\n" + "Phones: " + "\n" + phone;
+		} else if(email) {
+			document.getElementById('output').value = "Emails: " + "\n" + email;
+		} else if(phone) {
+			document.getElementById('output').value = "Phones: " + "\n" + phone;
+		}
+	}
+</script>
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript Regular Expressions</legend>
+		<table style="width: 100%">
+			<tr>
+				<td>
+					<div style="font-size: 30px; text-decoration: underline;" align="center">
+						Enter Your Large Text Here
+					</div>
+				</td>
+				<td>
+					<div style="font-size: 30px; text-decoration: underline;" align="center">
+						Extracted Contact Informations Here
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div align="center">
+						<textarea rows="20" cols="40" style="font-size: 30px;" autofocus="autofocus" id="input" onkeypress="refactor();"></textarea>
+					</div>
+				</td>
+				<td>
+					<div align="center">
+						<textarea rows="20" cols="40" style="font-size: 30px;" id="output" disabled="disabled"></textarea>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</body>
