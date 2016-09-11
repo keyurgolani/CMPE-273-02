@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript JSON
+	Problem: Reading HTTP response from certain REST APIs in form of JSON. 
+	Note: Fetching TreeHouse Profile from publically available REST API and showing information
+		for the profile by parsing the JSON response.
+
+ -->
+
+<html>
+<head>
+<title>Javascript JSON</title>
+<meta name="description"
+	content="Reading HTTP response from certain REST APIs in form of JSON.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript JSON</legend>
+		<div align="center">
+			<input type="text" id="user" autofocus="autofocus" style="width: 60%; text-align: center;">
+		</div>
+		<div align="center">
+			<input type="button" class="btn btn-lg btn-primary mybutton" style="width: 60%;" onclick="getProfile();" value="Fetch">
+		</div>
+		<div>
+			<div align="center">
+				<div class="errorField" id="errorField" style="font-size: 40px;"></div>
+				<fieldset id="result" style="visibility: hidden;">
+					<legend id="profileTitle"></legend>
+					<table>
+						<tr>
+							<td>
+								<div style="float: left">
+									<img alt="Profile Image" src="" id="profileImage" style="border-radius: 50%;">
+								</div>
+							</td>
+							<td>
+								<table style="margin: 0px 50px 0px 50px; font-size: 30px;">
+									<tr>
+										<td>User Name:&emsp;&emsp;&emsp;</td>
+										<td><p id="name"></p></td>
+									</tr>
+									<tr>
+										<td>User ID:&emsp;&emsp;&emsp;</td>
+										<td><p id="id"></p></td>
+									</tr>
+									<tr>
+										<td>Profile:&emsp;&emsp;&emsp;</td>
+										<td><a id="profile" href="#"></a></td>
+									</tr>
+									<tr>
+										<td>Total Points:&emsp;&emsp;&emsp;</td>
+										<td><p id="totalPoints"></p></td>
+									</tr>
+									<tr>
+										<td>Javascript Points:&emsp;&emsp;&emsp;</td>
+										<td><p id="jsPoints"></p></td>
+									</tr>
+									<tr>
+										<td>Database Points:&emsp;&emsp;&emsp;</td>
+										<td><p id="dbPoints"></p></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+	</fieldset>
+	<script type="text/javascript">
+		var xhr;
+		function getProfile() {
+			xhr = new XMLHttpRequest();
+			xhr.open('GET', "https://teamtreehouse.com/" + document.getElementById('user').value + ".json", true);
+			xhr.send();
+			xhr.addEventListener("readystatechange", processResponse, false);
+		}
+		
+		function processResponse() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var response = JSON.parse(xhr.responseText);
+				document.getElementById('name').innerText = response.name;
+				document.getElementById('profileTitle').innerHTML = response.name;
+				document.getElementById('id').innerText = response.profile_name;
+				document.getElementById('profile').href = response.profile_url;
+				document.getElementById('profile').innerHTML = response.profile_url;
+				document.getElementById('totalPoints').innerText = response.points.total;
+				document.getElementById('jsPoints').innerText = response.points.JavaScript;
+				document.getElementById('dbPoints').innerText = response.points.Databases;
+				document.getElementById('profileImage').src = response.gravatar_url;
+				document.getElementById('result').style.visibility = "visible";
+				document.getElementById('errorField').innerHTML = "";
+		    } else {
+		    	document.getElementById('result').style.visibility = "hidden";
+		    	document.getElementById('errorField').innerHTML = "No Profile Fetched..!!";
+		    }
+		}
+	</script>
+</body>
+</html>

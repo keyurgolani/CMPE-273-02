@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Inheritance
+	Problem: Animal is the parent class of all animal types like Dog, Cat, Human, etc. 
+	Note: Some of the inheritance concepts demonstrated by a simple example of Dog and Animal objects.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Inheritance</title>
+<meta name="description"
+	content="Animal is the parent class of all animal types like Dog, Cat, Human, etc.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+</head>
+<body>
+	<fieldset>
+		<legend>Javascript Inheritance</legend>
+		<div align="center">
+			<p id="result" style="font-size: 40px;"></p>
+		</div>
+	</fieldset>
+	<script type="text/javascript">
+		// Parent Class: Animal
+		var Animal = function() {
+			this.name = 'Animal';
+			this.getName = function() {
+				return this.name;
+			}
+			return this;
+		};
+		// Child Class: Dog
+		var Dog = function() {
+			// Overriden name of the Dog
+			this.name = "Tom";
+
+			// Child Class's own method
+			this.bark = function() {
+				return 'BARK!!';
+			}
+			return this;
+		};
+
+		// Defining inheritance
+		Dog.prototype = new Animal();
+
+		// Dog object
+		var dog = new Dog();
+
+		document.getElementById('result').innerText = "Is dog an instance of Dog? " + (dog instanceof Dog) + "\n" + 
+													  "Is dog an instance of Animal? " + (dog instanceof Animal) + "\n" + 
+													  "Dog's Bark: " + dog.bark() + "\n" + // Should be: "BARK!!"
+													  "Dog's Name: " + dog.getName() + "\n"; // Should be: "Tom"
+	</script>
+</body>
+</html>

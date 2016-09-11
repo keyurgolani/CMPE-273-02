@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Objects
+	Problem: A triangle has various properties along with functions too. 
+	Note: Triangle named object will be used and the properties side lengths will be
+		defined. Functions to get its perimeter and area will be defined.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Objects</title>
+<meta name="description"
+	content="A triangle has various properties along with functions too.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+<script type="text/javascript">
+	var triangle = {
+			side1: 0,
+			side2: 0,
+			side3: 0,
+			perimeter: function() {
+				return Number(this.side1) + Number(this.side2) + Number(this.side3);
+			},
+			area: function() {
+				return Math.sqrt((this.perimeter()/2)*((this.perimeter()/2) - this.side1)*((this.perimeter()/2) - this.side2)*((this.perimeter()/2) - this.side3));
+			}
+	}
+	function calculateValues() {
+		triangle.side1 = Number(document.getElementById('side1').value);
+		triangle.side2 = Number(document.getElementById('side2').value);
+		triangle.side3 = Number(document.getElementById('side3').value);
+		document.getElementById('perimeterResult').innerText = triangle.perimeter();
+		document.getElementById('areaResult').innerText = triangle.area();
+	}
+	function restrictAlphabet(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+          && (charCode < 48 || charCode > 57)) {
+          	return false;
+          } else {
+          	return true;
+          }
+      }
+</script>
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript Objects</legend>
+		<div align="center">
+			<table style="font-size: 40px; text-align: center;">
+				<tr>
+					<td>Side 1</td>
+					<td>Side 2</td>
+					<td>Side 3</td>
+				</tr>
+				<tr>
+					<td><input type="text" id="side1" autofocus="autofocus" style="width: 50%; text-align: center;" onkeypress="return restrictAlphabet(event)" onkeyup="calculateValues();"></td>
+					<td><input type="text" id="side2" style="width: 50%; text-align: center;" onkeypress="return restrictAlphabet(event)" onkeyup="calculateValues();"></td>
+					<td><input type="text" id="side3" style="width: 50%; text-align: center;" onkeypress="return restrictAlphabet(event)" onkeyup="calculateValues();"></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center">
+						<fieldset>
+							<legend>Perimeter</legend>
+							<p id="perimeterResult"></p>
+						</fieldset>
+						<fieldset>
+							<legend>Area</legend>
+							<p id="areaResult"></p>
+						</fieldset>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</fieldset>
+</body>
+</html>
