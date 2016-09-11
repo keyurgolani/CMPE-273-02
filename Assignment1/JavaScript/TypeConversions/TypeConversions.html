@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Type Conversion
+	Problem: Converting different values to different types give various outputs.
+	Note: Will demonstrate this using number 42 in different ways and casting it
+		into different data types.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Type Conversion</title>
+<meta name="description"
+	content="Finding contact details of a person out of a large text.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript Type Conversion</legend>
+		<input type="text" autofocus="autofocus" placeholder="Value for Variable a" style="margin: 50px;" onkeyup="calculateValues(this.value);">
+		<h1 id="result" style="margin: 50px;"></h1>
+	</fieldset>
+	<script type="text/javascript">
+		function calculateValues(a) {
+			var result = "Number Value of Variable a = " + Number(a) + "\n" + "Current Type of Variable a = " + typeof Number(a) +
+						"\n" + "Value of a + 1 = " + (Number(a) + 1) + "\n" + "\n" + "String Value of Variable a = " +  String(a) +
+						"\n" + "Current Type of Variable a = " + typeof String(a) + "\n" + "Value of a + 1 = " + (String(a) + 1) +
+						"\n" + "\n" + "Boolean Value of Variable a = " + Boolean(a) + "\n" + "Current Type of Variable a = " + typeof Boolean(a) +
+						"\n" + "Value of a + 1 = " + (Boolean(a) + 1)
+			document.getElementById('result').innerText = result;													;
+		}
+	</script>
+</body>
+</html>

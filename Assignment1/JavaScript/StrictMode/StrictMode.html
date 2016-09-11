@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<!--
+
+	Topic: Javascript Strict Mode
+	Problem: Restricting un-allowed operations in JavaScript.
+	Note: Will demonstrate the use of strict mode in javascript by writing
+		some value into a variable which is read only. It should generate
+		an error in strict mode.
+
+ -->
+
+<html>
+<head>
+<title>Javascript Strict Mode</title>
+<meta name="description"
+	content="Restricting un-allowed operations in JavaScript.">
+<meta charset="utf-8">
+<link rel='stylesheet' href='../../style.css' />
+</head>
+<body id="body">
+	<fieldset>
+		<legend>Javascript Strict Mode</legend>
+		<h1>Trying to assign custom value to a non-writable (read only) variable PI with existing value 3.14</h1>
+		<div>
+			<input type="text" autofocus="autofocus" id="newValue" placeholder="New Value for PI">
+			<input type="button" onclick="assignPIValue()" style="margin: 50px; height: 80px; font-size: 30px;" value="Assign">
+		</div>
+		<p id="errorField" class="errorField"></p>
+	</fieldset>
+	<script type="text/javascript">
+		"use strict"
+		var circle = {};
+		Object.defineProperty(circle, "PI", {value:3.14, writable:false});
+		function assignPIValue() {
+			var newValue = document.getElementById('newValue').value;
+			try{
+				circle.PI = newValue;
+			} catch(err) {
+				document.getElementById('errorField').innerText = err;
+				document.getElementById('newValue').focus();
+				document.getElementById('newValue').select();
+			}
+		}
+	</script>
+</body>
+</html>
