@@ -85,7 +85,7 @@
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				var response = JSON.parse(xhr.responseText);
 				document.getElementById('name').innerText = response.name;
-				document.getElementById('profileTitle').innerHTML = response.name;
+				document.getElementById('profileTitle').innerHTML = "Tree House profile of " + response.name;
 				document.getElementById('id').innerText = response.profile_name;
 				document.getElementById('profile').href = response.profile_url;
 				document.getElementById('profile').innerHTML = response.profile_url;
